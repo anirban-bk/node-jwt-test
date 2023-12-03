@@ -8,7 +8,7 @@ const login = async (req, res)=>{
     const user = {name: username};
 
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-    res.status(200).json({accessToken : accessToken});
+    res.status(200).json({accessToken : accessToken, user: user});
 }
 
 module.exports = {login}
