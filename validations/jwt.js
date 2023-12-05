@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const tokenExpiresIn = '15s';
 
 function authenticateToken(req, res, next){
     //Bearer Token
@@ -15,4 +16,12 @@ function authenticateToken(req, res, next){
     }
 }
 
-module.exports = {authenticateToken}
+function generateAccessToken(user){
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: tokenExpiresIn});
+}
+
+function generateRefreshToken(user){
+    return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+}
+
+module.exports = {authenticateToken, generateAccessToken, generateRefreshToken}

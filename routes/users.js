@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {authenticateToken} = require('../validations/jwt')
+const {authenticateToken} = require('../validations/jwt');
 
 //import controller
 const userController = require('../controllers/users');

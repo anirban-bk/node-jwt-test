@@ -8,9 +8,10 @@ const app = express();
 app.use(express.json());
 
 //routers
-app.use('/users', require('./routes/users'));
-//app.use('/login', require('./routes/login'));
+//app.use('/users', require('./routes/users'));
+app.use('/login', require('./routes/login'));
+//app.use('/token', require('./routes/login'));
 
 //port
-const port = process.env.port || 8082;
+const port = 8085;
 app.listen(port, ()=>console.log(`app is listening on port ${port}`));
